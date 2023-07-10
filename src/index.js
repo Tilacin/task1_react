@@ -58,21 +58,24 @@ function App() {
 }
 
 function Menu() {
-  const pizzas = pizzaData
+  const pizzas = pizzaData;
+  const numPizzas = pizzas.length
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <ul className="pizzas">
-        {pizzas.map((pizza) => (
-          <Pizza
-            key={pizza.name}
-            name={pizza.name}
-            ingredient={pizza.ingredients}
-            photoName={pizza.photoName}
-            price={pizza.price}
-          />
-        ))}
-      </ul>
+      {numPizzas > 0 && (
+        <ul className="pizzas">
+          {pizzas.map((pizza) => (
+            <Pizza
+              key={pizza.name}
+              name={pizza.name}
+              ingredient={pizza.ingredients}
+              photoName={pizza.photoName}
+              price={pizza.price}
+            />
+          ))}
+        </ul>
+      )}
     </main>
   );
 }
